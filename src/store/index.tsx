@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import dataSlice from "../features/data-slice";
-import errorSlice from "../features/error-slice";
+import dataSlice from "../features/DataSlice";
+import errorSlice from "../features/ErrorSlice";
 
 const store = configureStore({
   reducer: {

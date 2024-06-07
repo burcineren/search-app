@@ -1,5 +1,5 @@
 
-import { GoogleMap } from "./google-map";
+import { GoogleMap } from "./Map";
 import footerImage from "../../assets/images/footer.jpg"
 
 

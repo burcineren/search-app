@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { sortedFilteredData } from "../features/data-slice";
+import { sortedFilteredData } from "../features/DataSlice";
 import { RootState } from "../store";
 
 interface DropdownCardProps {

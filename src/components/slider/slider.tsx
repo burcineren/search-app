@@ -1,4 +1,4 @@
-import Carousel from "./slider-card";
+import Carousel from "./SliderCard";
 
 
 

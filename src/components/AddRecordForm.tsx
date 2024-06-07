@@ -4,10 +4,10 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { BsArrowLeft } from "react-icons/bs";
 import logo from "../assets/images/tesodev.png";
-import Errors from "./errors";
-import { Button } from "./UI/button";
+import Errors from "./Errors";
+import { Button } from "./UI/Button";
 import { Input } from "./UI/Input";
-import { setError } from "../features/error-slice";
+import { setError } from "../features/ErrorSlice";
 
  function AddRecordForm() {
   

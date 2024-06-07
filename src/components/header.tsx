@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { searchByFilter } from "../features/data-slice";
+import { searchByFilter } from "../features/DataSlice";
 import { RootState } from "../store"; 
 
 
 import { useNavigate } from "react-router-dom";
 import Logo from "../assets/images/tesodev.png";
-import { Button } from "./UI/button";
+import { Button } from "./UI/Button";
 import { Input } from "./UI/Input";
-import { List } from "./list";
+import { List } from "./List";
 
 export function Header() {
   const [text, setText] = useState("");

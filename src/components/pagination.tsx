@@ -1,4 +1,4 @@
-import { usePagination, DOTS } from "../hooks/use-pagination";
+import { usePagination, DOTS } from "../hooks/UsePagination";
 
  function Pagination(props:any) {
   const { onPageChange, totalCount, siblingCount, currentPage, pageSize } =
