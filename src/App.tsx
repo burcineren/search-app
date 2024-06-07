@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { bindData } from "./features/data-slice";
-import Home from "./views/home";
-import AddRecordPage from "./views/add-record-page";
-import SearchResultDetail from "./components/search-result-detail";
-import { fetchData } from "./services/data-service";
+import { bindData } from "./features/DataSlice";
+import Home from "./views/Home";
+import AddRecordPage from "./views/AddRecordPage";
+import SearchResultDetail from "./components/SearchResultDetail";
+import { fetchData } from "./services/DataService";
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
