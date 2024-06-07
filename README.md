@@ -13,23 +13,35 @@ If you are developing a production application, we recommend updating the config
 
 - Configure the top-level `parserOptions` property like this:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+  ```js
+  export default {
+    // other rules...
+    parserOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      project: ['./tsconfig.json', './tsconfig.node.json'],
+      tsconfigRootDir: __dirname,
+    },
+  }
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+ ## Project Start
+ `
+    cd my-project
+
+    npm install
+    npm run dev 
 
 
 ## DB Json Server Start
 
-npx json-server mock-data.json
+` npx json-server mock-data.json`
+
+## Using Environment Variables with Vite
+Create a .env file in the root of your project with variables prefixed by VITE_:
+
+
+  ```js
+    VITE_DATA_URL=http://localhost:3000/data
+    VITE_COLS_URL=http://localhost:3000/cols
+
+
