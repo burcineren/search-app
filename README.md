@@ -25,8 +25,8 @@ If you are developing a production application, we recommend updating the config
   }
 
  ## Project Start
- `
-    cd my-project
+ 
+    cd search-app
 
     npm install
     npm run dev 
