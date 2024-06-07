@@ -1,25 +1,34 @@
-import { useState } from 'react'
+import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { bindData } from "./features/data-slice";
+import Home from "./views/home";
+import AddRecordPage from "./views/add-record-page";
+import SearchResultDetail from "./components/search-result-detail";
+import { fetchData } from "./services/data-service";
 
-import './app.scss'
-import Home from './views/home';
-import AddNewPage from './views/add-record-page';
+const App: React.FC = () => {
+  const dispatch = useDispatch();
 
-function App() {
+  useEffect(() => {
+    fetchData()
+      .then((mergedData) => {
+        dispatch(bindData(mergedData));
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, [dispatch]);
 
   return (
-    <>
-     <BrowserRouter>
-    <div>
+    <BrowserRouter>
       <Routes>
-        <Route path="/"  element={<Home />} />
-        <Route path="/add-new" element = {<AddNewPage/>}/>
-
+        <Route path="/" element={<Home />} />
+        <Route path="/detail/:search" element={<SearchResultDetail />} />
+        <Route path="/add-new" element={<AddRecordPage />} />
       </Routes>
-    </div>
-  </BrowserRouter>
-    </>
-  )
-}
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;

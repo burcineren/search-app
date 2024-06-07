@@ -1,8 +1,9 @@
 
-import AddNew from '../components/add-record-form'
+import AddRecordForm from '../components/add-record-form'
 
-export default function AddNewPage() {
+function AddRecordPage() {
   return (
-    <AddNew/>
+    <AddRecordForm/>
   )
 }
+export default AddRecordPage
