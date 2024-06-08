@@ -1,8 +1,7 @@
-import { usePagination, DOTS } from "../hooks/UsePagination";
+import { usePagination, DOTS } from "../Hooks/UsePagination";
 
- function Pagination(props:any) {
-  const { onPageChange, totalCount, siblingCount, currentPage, pageSize } =
-    props;
+function Pagination(props:any) {
+  const { onPageChange, totalCount, siblingCount, currentPage, pageSize } = props;
 
   const paginationRange = usePagination({
     totalCount,
@@ -31,18 +30,18 @@ import { usePagination, DOTS } from "../hooks/UsePagination";
 
   return (
     <ul className="paginate-container">
-      <li className= {`previous-button ${currentPage === 1 ? "disabled" : ""}`} onClick={() => onPrevious()}>
+      <li className={`previous-button ${currentPage === 1 ? "disabled" : ""}`} onClick={onPrevious}>
         Previous
       </li>
 
-      {paginationRange && paginationRange.map((pageNumber) => {
+      {paginationRange && paginationRange.map((pageNumber, index) => {
         if (pageNumber === DOTS) {
-          return <li>&#8230;</li>;
+          return <li key={`dots-${index}`}>&#8230;</li>;
         }
 
         return (
           <li
-            className={`pagination-item ${ pageNumber === currentPage ? "selected": ""}`}
+            className={`pagination-item ${pageNumber === currentPage ? "selected": ""}`}
             key={pageNumber}
             onClick={() => onPageChange(pageNumber)}
           >
@@ -51,8 +50,8 @@ import { usePagination, DOTS } from "../hooks/UsePagination";
         );
       })}
 
-      <li className={`next-button ${currentPage === lastPage ? "disabled" : ""}`} onClick={() => onNext()}>Next</li>
+      <li className={`next-button ${currentPage === lastPage ? "disabled" : ""}`} onClick={onNext}>Next</li>
     </ul>
   );
 }
-export default Pagination
+export default Pagination;

@@ -1,6 +1,6 @@
-import { Header } from "../components/Header";
-import { Slider } from "../components/slider/Slider";
-import { Footer } from "../layout/footer/Footer";
+import { Header } from "../Components/Header";
+import { Slider } from "../Components/slider/Slider";
+import { Footer } from "../Layout/Footer/Footer";
 
 function Home() {
   return (

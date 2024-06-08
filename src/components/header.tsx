@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { searchByFilter } from "../features/DataSlice";
-import { RootState } from "../store"; 
+import { searchByFilter } from "../Features/DataSlice";
+import { RootState } from "../Store"; 
 
 
 import { useNavigate } from "react-router-dom";

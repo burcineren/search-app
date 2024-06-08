@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { sortedFilteredData } from "../features/DataSlice";
-import { RootState } from "../store";
+import { sortedFilteredData } from "../Features/DataSlice";
+import { RootState } from "../Store";
 
 interface DropdownCardProps {
   style?: React.CSSProperties;

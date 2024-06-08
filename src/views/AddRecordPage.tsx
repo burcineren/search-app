@@ -1,5 +1,5 @@
 
-import AddRecordForm from '../components/AddRecordForm'
+import AddRecordForm from '../Components/AddRecordForm'
 
 function AddRecordPage() {
   return (

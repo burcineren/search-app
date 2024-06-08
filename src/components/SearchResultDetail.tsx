@@ -4,11 +4,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import { FiMapPin } from "react-icons/fi";
 import { BsArrowDownUp } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-import { searchByFilter } from "../features/DataSlice";
+import { searchByFilter } from "../Features/DataSlice";
 import DropdownCard from "./DropdownCard";
 import { Button } from "./UI/Button";
 import { Input } from "./UI/Input";
-import { RootState } from "../store"; 
+import { RootState } from "../Store"; 
 import Pagination from "./Pagination";
 
 const pageSize = 5;
