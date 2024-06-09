@@ -93,7 +93,7 @@ input {
     }
 
     input {
-      width:34vw;
+      width: 34vw;
       height: 4rem;
     }
 
@@ -135,7 +135,7 @@ input {
 }
 @media screen and (max-width: 768px) {
   .header {
-    .image-wrapper{
+    .image-wrapper {
       h3 {
         position: static;
       }
@@ -560,4 +560,12 @@ input {
   margin: 0;
 }
 
+.input-error {
+  border: 1px solid #ff0000;
+}
 
+.error-message {
+  color: #ff0000;
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+}

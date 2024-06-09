@@ -9,21 +9,28 @@ export default function Errors() {
   const dispatch = useDispatch();
 
   return (
-    <div style={{ display: !errors.visibility ? "none" : "" }}>
-      <div className="error-wrapper">
-        <div className="cancel-button" onClick={() => dispatch(setError({ message: "", visibility: false }))}>
-          <FaRegTimesCircle className="times" />
-        </div>
-        <div className="error-body">
-          <div className="error-content">
-            <p>
-              <b>Error while adding link element</b>
-            </p>
-            <p>{errors.message}</p>
+    <>
+      <div style={{ display: !errors.visibility ? "none" : "" }}>
+        <div className="error-wrapper">
+          <div
+            className="cancel-button"
+            onClick={() =>
+              dispatch(setError({ message: "", visibility: false }))
+            }
+          >
+            <FaRegTimesCircle className="times" />
           </div>
-          <div className="error">Error</div>
+          <div className="error-body">
+            <div className="error-content">
+              <p>
+                <b>Error while adding link element</b>
+              </p>
+              <p>{errors.message}</p>
+            </div>
+            <div className="error">Error</div>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

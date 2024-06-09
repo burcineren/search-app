@@ -6,8 +6,8 @@ export function ListItem({ items }) {
     <>
       <li className="list-item">
         <FiMapPin className="icon" />
-        <p className="address">{items.City}</p>
-        <p className="city">{items.Country}</p>
+        <p className="address">{items.city}</p>
+        <p className="city">{items.country}</p>
       </li>
     </>
   );

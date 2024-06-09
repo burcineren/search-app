@@ -58,7 +58,7 @@ const DropdownCard: React.FC<DropdownCardProps> = ({ style }) => {
 
   const sortByName = (data: any, initialValue: number) => {
     let descendingSortData = data.sort((a: any, b: any) => {
-      let sortedData = a["Name Surname"] > b["Name Surname"];
+      let sortedData = a["nameSurname"] > b["nameSurname"];
       return initialValue === 1 ? (sortedData ? 1 : -1) : !sortedData ? 1 : -1;
     });
 
@@ -68,7 +68,8 @@ const DropdownCard: React.FC<DropdownCardProps> = ({ style }) => {
   const sortByYear = (data: any, initialValue: number) => {
     let ascendingSortData = data.sort((a: any, b: any) => {
       let calculatedDate = convertDateStringToTime(a, b);
-      let sortedData = calculatedDate.getTimeFirstDate > calculatedDate.getTimesecondDate;
+      let sortedData =
+        calculatedDate.getTimeFirstDate > calculatedDate.getTimesecondDate;
       return initialValue === 1 ? (sortedData ? 1 : -1) : !sortedData ? 1 : -1;
     });
 
@@ -76,10 +77,10 @@ const DropdownCard: React.FC<DropdownCardProps> = ({ style }) => {
   };
 
   const convertDateStringToTime = (firstDateIndex: any, lastDateIndex: any) => {
-    let firstDate = firstDateIndex.Date.split("/").reverse().join("/");
+    let firstDate = firstDateIndex.date.split("/").reverse().join("/");
     let getTimeFirstDate = new Date(firstDate).getTime();
 
-    let secondDate = lastDateIndex.Date.split("/").reverse().join("/");
+    let secondDate = lastDateIndex.date.split("/").reverse().join("/");
     let getTimesecondDate = new Date(secondDate).getTime();
 
     return {

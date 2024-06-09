@@ -6,16 +6,17 @@ import { BsArrowDownUp } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { searchByFilter } from "../features/DataSlice";
 import DropdownCard from "./DropdownCard";
+import { Link } from "react-router-dom";
 import { Button } from "./UI/Button";
 import { Input } from "./UI/Input";
-import { RootState } from "../store"; 
+import { RootState } from "../store";
 import Pagination from "./Pagination";
 
 const pageSize = 5;
 
 const SearchResultDetail: React.FC = () => {
   const [text, setText] = useState<string>("");
-  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [isVisible, setisVisible] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const data = useSelector((state: RootState) => state.data);
   const dispatch = useDispatch();
@@ -27,8 +28,8 @@ const SearchResultDetail: React.FC = () => {
   }, [text]);
 
   useEffect(() => {
-    searchByTerm(params.search || "");
-  }, [params.search]);
+    searchByTerm(params.search);
+  }, []);
 
   const currentListData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * pageSize;
@@ -37,10 +38,9 @@ const SearchResultDetail: React.FC = () => {
     if (data.searchData !== null) {
       return data.searchData.slice(firstPageIndex, lastPageIndex);
     }
-    return [];
   }, [currentPage, data.searchData]);
 
-  function searchByTerm(term: string) {
+  function searchByTerm(term) {
     if (term && term.length > 0) {
       dispatch(searchByFilter(term.trim()));
     } else {
@@ -52,11 +52,13 @@ const SearchResultDetail: React.FC = () => {
     <div className="detail-container">
       <div className="detail-header">
         <div className="logo">
-          <img src={Logo} alt="tesodev" />
+          <Link to="/">
+            <img src={Logo} alt="tesodev"></img>
+          </Link>
         </div>
         <div className="form">
           <Input
-            value={params.search || ""}
+            value={params.search}
             onChange={(e) => {
               setText(e.target.value);
               searchByTerm(e.target.value);
@@ -86,7 +88,7 @@ const SearchResultDetail: React.FC = () => {
         <button
           className="drowdown"
           onClick={() => {
-            setIsVisible(!isVisible);
+            setisVisible(!isVisible);
           }}
         >
           <BsArrowDownUp />
@@ -94,40 +96,44 @@ const SearchResultDetail: React.FC = () => {
         </button>
         <DropdownCard style={{ display: !isVisible ? "none" : "" }} />
       </div>
-      {data.searchData !== null && data.searchData.length > 0 && (
+      {data.searchData !== null && data.searchData.length && (
         <div className="detail-list-wrapper">
           <ul>
             {currentListData &&
-              currentListData.map((item, index) => (
-                <li key={index} className="detail-list-item">
-                  <div className="detail-list-item-wrapper">
-                    <div className="detail-list-item-content">
-                      <FiMapPin className="icon" />
-                      <div className="content">
-                        <p className="address">{item.City}</p>
-                        <p className="city">{item.Country}</p>
+              currentListData.map((item, index) => {
+                return (
+                  <li key={index} className="detail-list-item">
+                    <div className="detail-list-item-wrapper">
+                      <div className="detail-list-item-content">
+                        <FiMapPin className="icon" />
+                        <div className="content">
+                          <p className="address">{item.city}</p>
+                          <p className="city">{item.country}</p>
+                        </div>
+                      </div>
+                      <div className="detail-list-item-content-item">
+                        <p className="name">{item["nameSurname"]}</p>
+                        <p className="date">{item.date}</p>
                       </div>
                     </div>
-                    <div className="detail-list-item-content-item">
-                      <p className="name">{item["Name Surname"]}</p>
-                      <p className="date">{item.Date}</p>
-                    </div>
-                  </div>
-                </li>
-              ))}
+                  </li>
+                );
+              })}
           </ul>
         </div>
       )}
-      {data.searchData !== null && data.searchData.length > 0 && (
-        <Pagination
-          currentPage={currentPage}
-          totalCount={data.searchData.length}
-          pageSize={pageSize}
-          onPageChange={(page) => {
-            setCurrentPage(page);
-          }}
-        />
-      )}
+      <div>
+        {data.searchData !== null && data.searchData.length && (
+          <Pagination
+            currentPage={currentPage}
+            totalCount={data.searchData.length}
+            pageSize={pageSize}
+            onPageChange={(page) => {
+              setCurrentPage(page);
+            }}
+          />
+        )}
+      </div>
     </div>
   );
 };

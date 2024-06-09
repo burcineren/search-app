@@ -1,7 +1,8 @@
 import { usePagination, DOTS } from "../hooks/UsePagination";
 
-function Pagination(props:any) {
-  const { onPageChange, totalCount, siblingCount, currentPage, pageSize } = props;
+function Pagination({ ...props }) {
+  const { onPageChange, totalCount, siblingCount, currentPage, pageSize } =
+    props;
 
   const paginationRange = usePagination({
     totalCount,
@@ -24,33 +25,44 @@ function Pagination(props:any) {
 
   let lastPage;
 
-  if(paginationRange){
+  if (paginationRange) {
     lastPage = paginationRange[paginationRange.length - 1];
   }
 
   return (
     <ul className="paginate-container">
-      <li className={`previous-button ${currentPage === 1 ? "disabled" : ""}`} onClick={onPrevious}>
+      <li
+        className={`previous-button ${currentPage === 1 ? "disabled" : ""}`}
+        onClick={onPrevious}
+      >
         Previous
       </li>
 
-      {paginationRange && paginationRange.map((pageNumber, index) => {
-        if (pageNumber === DOTS) {
-          return <li key={`dots-${index}`}>&#8230;</li>;
-        }
+      {paginationRange &&
+        paginationRange.map((pageNumber, index) => {
+          if (pageNumber === DOTS) {
+            return <li key={`dots-${index}`}>&#8230;</li>;
+          }
 
-        return (
-          <li
-            className={`pagination-item ${pageNumber === currentPage ? "selected": ""}`}
-            key={pageNumber}
-            onClick={() => onPageChange(pageNumber)}
-          >
-            {pageNumber}
-          </li>
-        );
-      })}
+          return (
+            <li
+              className={`pagination-item ${
+                pageNumber === currentPage ? "selected" : ""
+              }`}
+              key={pageNumber}
+              onClick={() => onPageChange(pageNumber)}
+            >
+              {pageNumber}
+            </li>
+          );
+        })}
 
-      <li className={`next-button ${currentPage === lastPage ? "disabled" : ""}`} onClick={onNext}>Next</li>
+      <li
+        className={`next-button ${currentPage === lastPage ? "disabled" : ""}`}
+        onClick={onNext}
+      >
+        Next
+      </li>
     </ul>
   );
 }

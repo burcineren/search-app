@@ -19,8 +19,10 @@ const dataSlice = createSlice({
     },
     searchByFilter(state, action: PayloadAction<string | null>) {
       if (action.payload !== null) {
-        const filteredData = state.data.filter((item) =>
-          item["Name Surname"].includes(action.payload!.trim())
+        const filteredData = state.data.filter(
+          (item) =>
+            item["nameSurname"] &&
+            item["nameSurname"].includes(action.payload!.trim())
         );
         state.searchData = [...filteredData];
       } else {
@@ -33,5 +35,7 @@ const dataSlice = createSlice({
   },
 });
 
-export const { bindData, searchByFilter, sortedFilteredData } = dataSlice.actions;
+export const { bindData, searchByFilter, sortedFilteredData } =
+  dataSlice.actions;
+
 export default dataSlice.reducer;
