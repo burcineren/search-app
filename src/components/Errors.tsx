@@ -2,7 +2,7 @@ import React from "react";
 import { FaRegTimesCircle } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
-import { setError } from "../features/ErrorSlice";
+import { setError } from "../services/ErrorService";
 
 export default function Errors() {
   const errors = useSelector((state: RootState) => state.error);

@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { FiMapPin } from "react-icons/fi";
 import { BsArrowDownUp } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-import { searchByFilter } from "../features/DataSlice";
+import { searchByFilter } from "../services/DataService";
 import DropdownCard from "./DropdownCard";
 import { Link } from "react-router-dom";
 import { Button } from "./UI/Button";

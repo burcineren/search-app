@@ -5,7 +5,7 @@ const initialState = {
   visibility: false,
 };
 
-const errorReducer = createSlice({
+const errorService = createSlice({
   name: "error",
   initialState,
   reducers: {
@@ -16,5 +16,5 @@ const errorReducer = createSlice({
   },
 });
 
-export const { setError } = errorReducer.actions;
-export default errorReducer.reducer;
+export const { setError } = errorService.actions;
+export default errorService.reducer;

@@ -10,7 +10,7 @@ const initialState: DataState = {
   searchData: null,
 };
 
-const dataSlice = createSlice({
+const dataService = createSlice({
   name: "data",
   initialState,
   reducers: {
@@ -36,6 +36,6 @@ const dataSlice = createSlice({
 });
 
 export const { bindData, searchByFilter, sortedFilteredData } =
-  dataSlice.actions;
+dataService.actions;
 
-export default dataSlice.reducer;
+export default dataService.reducer;

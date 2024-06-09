@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import dataSlice from "../features/DataSlice";
-import errorSlice from "../features/ErrorSlice";
+import dataService from "../services/DataService";
+import errorService from "../services/ErrorService";
 
 const store = configureStore({
   reducer: {
-    data: dataSlice,
-    error: errorSlice,
+    data: dataService,
+    error: errorService,
   },
 });
 

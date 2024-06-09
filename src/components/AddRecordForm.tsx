@@ -6,7 +6,7 @@ import logo from "../assets/images/tesodev.png";
 import Errors from "./Errors";
 import { Button } from "./UI/Button";
 import { Input } from "./UI/Input";
-import { setError } from "../features/ErrorSlice";
+import { setError } from "../services/ErrorService";
 
 function AddRecordForm() {
   const [disabled, setDisabled] = useState(true);
